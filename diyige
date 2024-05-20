@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>粉色密码页面</title>
+<style>
+  body {
+    background-color: pink;
+    font-family: Arial, sans-serif;
+  }
+  .container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 40px;
+    background-color: #fff;
+    border-radius: 40px;
+    text-align: center;
+  }
+  .question {
+    margin-bottom: 40px; /* 增加问题之间的间距 */
+  }
+  .hidden {
+    display: none;
+  }
+  .back-button {
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+  }
+</style>
+</head>
+<body>
+<div id="passwordPage" class="container">
+  <h1>欢迎，请输入密码</h1>
+  <input type="password" id="passwordInput" />
+  <button onclick="checkPassword()">提交</button>
+</div>
+
+<div id="questionsPage" class="container hidden">
+  <h1>请回答以下问题：</h1>
+  <div>
+    <label for="question1">问题1：我的电话号码是多少？</label>
+    <input type="text" id="question1" />
+  </div>
+  <div>
+    <label for="question2">问题2：我最喜欢的冰淇淋口味是什么？</label>
+    <input type="text" id="question2" />
+  </div>
+  <div>
+    <label for="question3">问题3：董博轩第一次请小肖喝的咖啡叫什么？</label>
+    <input type="text" id="question3" />
+  </div>
+  <button onclick="checkAnswers()">提交</button>
+</div>
+
+<div id="mainPage" class="container hidden">
+  <button onclick="showContent('dance')">包甜的🩷</button>
+  <button onclick="showContent('photos')">未满999张📷</button>
+  <button onclick="showContent('peaches')">土土土🤭</button>
+  <button onclick="showContent('songs')">love song🎵</button>
+  <button onclick="showContent('flowers')">花花💐</button>
+  <button onclick="showContent('message')">留言💞</button>
+  <button class="back-button" onclick="backToStart()">Back</button>
+</div>
+
+<div id="dance" class="container hidden">
+  <p>浅浅给你跳个手势舞。</p >
+  <!-- 视频元素 -->
+  <body>
+
+	<video width="320" height="240" controls>
+	  <source src="ac9c209047e8938598b0811f7fb4d08e.mp4" type="video/mp4">
+	  
+	</video>
+	
+	</body>
+  <button class="back-button" onclick="backToMain()">Back</button>
+</div>
+
+<!-- 其他内容页面的HTML结构 -->
+<!-- 未满999张📷 内容页面 -->
+<div id="photos" class="container hidden">
+	<p>52/999张合照</p >
+		<p>以后给你发</p >
+	<button class="back-button" onclick="backToMain()">Back</button>
+  </div>
+  
+  <title>土土土🤭 内容页面</title>
+<style>
+  .container {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    text-align: center;
+  }
+  .hidden {
+    display: none;
+  }
+  .back-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+  }
+</style>
+</head>
+<body>
+
+<div id="peaches" class="container">
+  <div id="peachContainer">
+    <span style='font-size:100px;'>&#127825;</span>
+    <span style='font-size:100px;'>&#127825;</span>
+    <span style='font-size:100px;'>&#127825;</span>
+    <span style='font-size:100px;'>&#127825;</span>
+    <span style='font-size:100px;'>&#127825;</span>
+    <span style='font-size:100px;'>&#127825;</span>
+    <span style='font-size:100px;'>&#127825;</span>
+    <span style='font-size:100px;'>&#127825;</span>
+    <span style='font-size:100px;'>&#127825;</span>
+    <span style='font-size:100px;'>&#127825;</span>
+  </div>
+  <p>知道为什么这么多桃子吗？</p >
+  <button id="dontKnowButton" onclick="showPeachAnswer()">不知道</button>
+  <div id="peachAnswer" class="hidden">
+    <p>因为我想桃你喜欢。</p >
+    <button class="back-button" onclick="backToMain()">Back</button>
+  </div>
+  <!-- 问题2.你知道1-10的含义吗？ -->
+  <p>你知道1-10的含义吗？</p >
+  <div>
+    <button onclick="showQuestion3()">知道</button>
+    <button onclick="showNotKnowAnswer()">不知道</button>
+  </div>
+  <!-- 问题3.吃了一碗面，好吃到哭，是什么面呢？ -->
+  <div id="question3" class="hidden">
+    <p>吃了一碗面，好吃到哭，是什么面呢？</p >
+    <input type="text" id="answerInput" />
+    <button onclick="checkAnswer()">确认</button>
+  </div>
+  <!-- 正确答案和恭喜你答对了 -->
+  <div id="correctAnswer" class="hidden">
+    <p>是：每天都想和你见面。</p >
+    <p>不论前端还是后端，都不如我对你的诡计多端。</p >
+    <button class="back-button" onclick="backToMain()">Back</button>
+  </div>
+  <button class="back-button" onclick="backToMain()">Back</button>
+</div>
+
+<script>
+function showPeachAnswer() {
+  document.getElementById("peachAnswer").classList.remove("hidden");
+}
+
+function showNotKnowAnswer() {
+  alert("我10刻都在想你\n喜欢你很9了\n请8你交给我\n绝对不会7负你\n请6你在我身边\n5发4一辈子\n绝不会3心2意\n只爱你\n1个人!!\n（我的天，太土了，我自己都被土到了）");
+}
+
+function showQuestion3() {
+  document.getElementById("question3").classList.remove("hidden");
+}
+
+function checkAnswer() {
+  const answer = document.getElementById("answerInput").value;
+  if (answer === "每天都想和你见面") {
+    document.getElementById("correctAnswer").classList.remove("hidden");
+  } else {
+    alert("正确答案是：每天都想和你见面。");
+  }
+}
+</script>
+</body>
+  
+  <!-- love song🎵 内容页面 -->
+  <div id="songs" class="container hidden">
+	<p>给你分享几个歌</p >
+	<!-- 假设您有一些歌曲信息，这里可以使用JavaScript动态生成歌曲列表 -->
+	<div id="songList">
+	  <!-- 歌曲信息元素示例 -->
+	  <p>1000hours</p >
+		<p>lifetime</p >
+			<p>let you go</p >	
+			<p>perfect</p >
+			<p>8letters</p >
+			<p>lucky me</p >
+			<p>Strawberries & Cigarettes</p >
+		<img src="1w234578432.jpg" alt="图片描述" width="300" height="200">	
+	  <!-- ...更多的歌曲信息元素 -->
+	</div>
+	<p>互相交换一下吧，你也把你最喜欢的几首歌歌名留下来</p >
+	<textarea id="songMessage"></textarea>
+	<button onclick="saveSongMessage()">保存</button>
+	<button class="back-button" onclick="backToMain()">Back</button>
+  </div>
+  
+  <!-- 花花💐 内容页面 -->
+  <div id="flowers" class="container hidden">
+	<p>这个是我用醒图P的电子花束╰(*´︶`*)╯</p >
+	<!-- 假设您有一些花束图片，这里可以使用JavaScript动态生成图片元素 -->
+		< img src="hngertyu7896432.jpg" alt="图片描述" width="300" height="200">
+	<button class="back-button" onclick="backToMain()">Back</button>
+  </div>
+  
+  <!-- 留言💞 内容页面 -->
+  <div id="message" class="container hidden">
+	<p>如果有想说的话就写吧</p >
+	<textarea id="userMessage"></textarea>
+	<button onclick="saveUserMessage()">保存</button>
+	<button class="back-button" onclick="backToMain()">Back</button>
+  </div>
+
+<script>
+function checkPassword() {
+  const password = "xhngedbx1028";
+  const input = document.getElementById("passwordInput").value;
+  if (input === password) {
+    document.getElementById("passwordPage").classList.add("hidden");
+    document.getElementById("questionsPage").classList.remove("hidden");
+  } else {
+    alert("密码错误");
+  }
+}
+
+function checkAnswers() {
+  const question1 = document.getElementById("question1").value;
+  const question2 = document.getElementById("question2").value;
+  const question3 = document.getElementById("question3").value;
+
+  if (
+    question1 === "13270638693" &&
+    (question2 === "巧克力" || question2 === "巧克力口味" || question2 === "巧克力味") &&
+    question3 === "丝绒拿铁"
+  ) {
+    document.getElementById("questionsPage").classList.add("hidden");
+    document.getElementById("mainPage").classList.remove("hidden");
+  } else {
+    alert("回答错误，请重新回答");
+  }
+}
+
+function showContent(id) {
+  document.getElementById("mainPage").classList.add("hidden");
+  document.getElementById(id).classList.remove("hidden");
+}
+
+function backToMain() {
+  document.getElementById("mainPage").classList.remove("hidden");
+  const contents = document.querySelectorAll("#mainPage ~ div");
+  contents.forEach(content => content.classList.add("hidden"));
+}
+
+function backToStart() {
+  document.getElementById("passwordPage").classList.remove("hidden");
+  const contents = document.querySelectorAll("#passwordPage ~ div");
+  contents.forEach(content => content.classList.add("hidden"));
+}
+</script>
+</body>
+</html>
